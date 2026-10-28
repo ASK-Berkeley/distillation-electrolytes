@@ -1,0 +1,18 @@
+tolerance 2.0
+filetype xyz
+output packed_0_1M.xyz
+
+structure src/data_prep/box_creation/molecules/dme.xyz
+  number 211
+  inside box 2.0 2.0 2.0 32.6 32.6 32.6
+end structure
+
+structure src/data_prep/box_creation/molecules/na.xyz
+  number 2
+  inside box 2.0 2.0 2.0 32.6 32.6 32.6
+end structure
+
+structure src/data_prep/box_creation/molecules/otf.xyz
+  number 2
+  inside box 2.0 2.0 2.0 32.6 32.6 32.6
+end structure

@@ -1,0 +1,3 @@
+[submodule "fennol"]
+	path = fennol
+	url = https://github.com/ishanthewizard/FeNNol-fork.git

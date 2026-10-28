@@ -1,0 +1,15 @@
+; Sodium cation, Na+
+;
+; Source: Aqvist, J. Phys. Chem. 94, 8021 (1990), doi:10.1021/j100384a009,
+; as distributed in GROMACS oplsaa.ff (atom type opls_407, "Na+ Aqvists cation").
+; Lennard-Jones (sigma 0.333045 nm, epsilon 0.011598 kJ/mol) is defined in the
+; combined forcefield file written by lib/build_system_lpg.py, copied verbatim
+; from oplsaa.ff/ffnonbonded.itp. Full +1 charge, no charge scaling.
+
+[ moleculetype ]
+; name  nrexcl
+NA      3
+
+[ atoms ]
+;  nr   type    resnr  resname  atom   cgnr   charge    mass
+   1   opls_407   1     NA      Na     1     1.000   22.98977

@@ -1,0 +1,18 @@
+tolerance 2.0
+filetype xyz
+output packed_1M.xyz
+
+structure src/data_prep/box_creation/molecules/diglyme.xyz
+  number 126
+  inside box 2.0 2.0 2.0 30.8 30.8 30.8
+end structure
+
+structure src/data_prep/box_creation/molecules/na.xyz
+  number 17
+  inside box 2.0 2.0 2.0 30.8 30.8 30.8
+end structure
+
+structure src/data_prep/box_creation/molecules/pf6.xyz
+  number 17
+  inside box 2.0 2.0 2.0 30.8 30.8 30.8
+end structure

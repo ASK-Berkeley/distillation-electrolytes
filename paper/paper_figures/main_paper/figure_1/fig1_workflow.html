@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style data-omelette-print-defaults>
+@media print {
+  @page { margin: 0.5in; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  figure, table, pre, blockquote, img, svg, tr, [class~="card" i] { break-inside: avoid; }
+  img, svg { max-width: 100%; }
+  p { orphans: 3; widows: 3; }
+}
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body { margin:0; background:#FFFFFF; }
+  * { -webkit-font-smoothing:antialiased; }
+</style>
+</helmet>
+
+<div style="position:relative; width:1920px; height:1081px; background:#FFFFFF; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; color:#1F2430; overflow:hidden;">
+
+  <!-- ============ PANEL 1 (combined: sample + distill) ============ -->
+  <div style="position:absolute; left:40px; top:36px; width:1840px; height:410px; box-sizing:border-box; background:#F7F8FA; border:1px solid #E6E8EC; border-radius:14px; padding:26px 36px;">
+    <div style="display:flex; align-items:center; gap:14px;">
+      <div style="flex:none; width:44px; height:44px; border-radius:50%; background:#AEB4BC; color:#fff; font-weight:700; font-size:27px; display:flex; align-items:center; justify-content:center;">1</div>
+      <div style="font-size:32px; font-weight:600; line-height:1.1; white-space:nowrap;">Run Teacher trajectories, sample configurations, and train a student model</div>
+    </div>
+
+    <!-- body coordinate system: 1768 x 300 ; main pipeline altitude y = 155 -->
+    <div style="position:relative; height:300px; margin-top:12px;">
+
+      <!-- ===== Teacher MLIP (same altitude as the main pipeline) ===== -->
+      <div style="position:absolute; left:-14px; top:78px; width:200px; border:2px solid #1F7A8C; border-radius:12px; background:#fff; overflow:hidden;">
+        <div style="background:#1F7A8C; color:#fff; font-size:27px; font-weight:700; text-align:center; padding:9px; white-space:nowrap;">Teacher MLIP</div>
+        <div style="padding:9px; display:flex; align-items:center; justify-content:center;">
+          <svg width="126" height="82" viewBox="0 0 176 118">
+            <g stroke="#C4C8CE" stroke-width="0.8">
+              <line x1="14" y1="30" x2="50" y2="18"/><line x1="14" y1="30" x2="50" y2="46"/><line x1="14" y1="30" x2="50" y2="74"/><line x1="14" y1="30" x2="50" y2="102"/>
+              <line x1="14" y1="58" x2="50" y2="18"/><line x1="14" y1="58" x2="50" y2="46"/><line x1="14" y1="58" x2="50" y2="74"/><line x1="14" y1="58" x2="50" y2="102"/>
+              <line x1="14" y1="86" x2="50" y2="18"/><line x1="14" y1="86" x2="50" y2="46"/><line x1="14" y1="86" x2="50" y2="74"/><line x1="14" y1="86" x2="50" y2="102"/>
+              <line x1="50" y1="18" x2="86" y2="18"/><line x1="50" y1="18" x2="86" y2="46"/><line x1="50" y1="18" x2="86" y2="74"/><line x1="50" y1="18" x2="86" y2="102"/>
+              <line x1="50" y1="46" x2="86" y2="18"/><line x1="50" y1="46" x2="86" y2="46"/><line x1="50" y1="46" x2="86" y2="74"/><line x1="50" y1="46" x2="86" y2="102"/>
+              <line x1="50" y1="74" x2="86" y2="18"/><line x1="50" y1="74" x2="86" y2="46"/><line x1="50" y1="74" x2="86" y2="74"/><line x1="50" y1="74" x2="86" y2="102"/>
+              <line x1="50" y1="102" x2="86" y2="18"/><line x1="50" y1="102" x2="86" y2="46"/><line x1="50" y1="102" x2="86" y2="74"/><line x1="50" y1="102" x2="86" y2="102"/>
+              <line x1="86" y1="18" x2="122" y2="18"/><line x1="86" y1="18" x2="122" y2="46"/><line x1="86" y1="18" x2="122" y2="74"/><line x1="86" y1="18" x2="122" y2="102"/>
+              <line x1="86" y1="46" x2="122" y2="18"/><line x1="86" y1="46" x2="122" y2="46"/><line x1="86" y1="46" x2="122" y2="74"/><line x1="86" y1="46" x2="122" y2="102"/>
+              <line x1="86" y1="74" x2="122" y2="18"/><line x1="86" y1="74" x2="122" y2="46"/><line x1="86" y1="74" x2="122" y2="74"/><line x1="86" y1="74" x2="122" y2="102"/>
+              <line x1="86" y1="102" x2="122" y2="18"/><line x1="86" y1="102" x2="122" y2="46"/><line x1="86" y1="102" x2="122" y2="74"/><line x1="86" y1="102" x2="122" y2="102"/>
+              <line x1="122" y1="18" x2="156" y2="58"/><line x1="122" y1="46" x2="156" y2="58"/><line x1="122" y1="74" x2="156" y2="58"/><line x1="122" y1="102" x2="156" y2="58"/>
+            </g>
+            <g fill="#1F7A8C"><circle cx="14" cy="30" r="5.5"/><circle cx="14" cy="58" r="5.5"/><circle cx="14" cy="86" r="5.5"/><circle cx="50" cy="18" r="5.5"/><circle cx="50" cy="46" r="5.5"/><circle cx="50" cy="74" r="5.5"/><circle cx="50" cy="102" r="5.5"/><circle cx="86" cy="18" r="5.5"/><circle cx="86" cy="46" r="5.5"/><circle cx="86" cy="74" r="5.5"/><circle cx="86" cy="102" r="5.5"/><circle cx="122" cy="18" r="5.5"/><circle cx="122" cy="46" r="5.5"/><circle cx="122" cy="74" r="5.5"/><circle cx="122" cy="102" r="5.5"/></g>
+            <circle cx="156" cy="58" r="6.5" fill="#1F7A8C" stroke="#155E6E" stroke-width="1.6"/>
+          </svg>
+        </div>
+      </div>
+      <!-- ===== Energy vs time graph : trajectory sampled into snapshots ===== -->
+      <div style="position:absolute; left:308px; top:10px; width:260px; height:240px;">
+        <svg width="260" height="185">
+          <line x1="52" y1="38" x2="52" y2="145" stroke="#6B7280" stroke-width="2.16"/>
+          <line x1="52" y1="145" x2="244" y2="145" stroke="#6B7280" stroke-width="2.16"/>
+          <polyline points="54,98 60,81 66,105 71,86 77,111 83,82 88,100 94,78 100,108 106,87 112,114 118,84 124,99 130,80 135,110 141,90 147,105 153,81 158,112 164,87 169,98 175,78 181,108 187,92 193,104 198,82 204,114 210,86 215,98 223,80 228,106 233,88 239,111 244,94" fill="none" stroke="#1F7A8C" stroke-width="2.4" stroke-linejoin="round"/>
+          <g stroke="#6B7280" stroke-width="1.6" stroke-dasharray="6 5">
+            <line x1="70" y1="92" x2="70" y2="180"/>
+            <line x1="116" y1="104" x2="116" y2="180"/>
+            <line x1="162" y1="108" x2="162" y2="180"/>
+          </g>
+          <text x="52" y="172" font-size="27" fill="#6B7280" font-family="Helvetica, Arial" text-anchor="middle">0</text>
+          <text x="244" y="172" font-size="27" fill="#1F7A8C" font-family="Helvetica, Arial" text-anchor="end" font-weight="700">100 ps</text>
+          <text x="30" y="92" transform="rotate(-90 30 92)" font-size="27" fill="#1F2430" font-family="Helvetica, Arial" text-anchor="middle" font-weight="600">energy</text>
+        </svg>
+        <div style="position:absolute; left:51px; top:180px; width:38px; height:38px; border:1.6px solid #1F7A8C; border-radius:6px; background:#fff; overflow:hidden;"><img src="assets/box_napf6_dme.png" style="width:100%; height:100%; object-fit:contain;" /></div>
+        <div style="position:absolute; left:97px; top:180px; width:38px; height:38px; border:1.6px solid #1F7A8C; border-radius:6px; background:#fff; overflow:hidden;"><img src="assets/box_napf6_dme.png" style="width:100%; height:100%; object-fit:contain;" /></div>
+        <div style="position:absolute; left:143px; top:180px; width:38px; height:38px; border:1.6px solid #1F7A8C; border-radius:6px; background:#fff; overflow:hidden;"><img src="assets/box_napf6_dme.png" style="width:100%; height:100%; object-fit:contain;" /></div>
+      </div>
+
+      <!-- collected stack -->
+      <div style="position:absolute; left:602px; top:94px;">
+        <div style="position:relative; width:122px; height:122px;">
+          <div style="position:absolute; left:30px; top:0; width:92px; height:92px; border:1.6px solid #C2C6CC; border-radius:7px; background:#fff; overflow:hidden;"><img src="assets/box_napf6_dme.png" style="width:100%; height:100%; object-fit:contain;" /></div>
+          <div style="position:absolute; left:15px; top:15px; width:92px; height:92px; border:1.6px solid #C2C6CC; border-radius:7px; background:#fff; overflow:hidden;"><img src="assets/box_napf6_dme.png" style="width:100%; height:100%; object-fit:contain;" /></div>
+          <div style="position:absolute; left:0; top:30px; width:92px; height:92px; border:1.6px solid #6B7280; border-radius:7px; background:#fff; overflow:hidden;"><img src="assets/box_napf6_dme.png" style="width:100%; height:100%; object-fit:contain;" /></div>
+        </div>
+        <div style="font-size:27px; font-weight:700; text-align:center; margin-top:11px; line-height:1.15; width:122px; white-space:nowrap;">collected<br/>snapshots</div>
+      </div>
+
+      <!-- Rattle: label on top, shaking snapshot with cartoon sound waves below -->
+      <div style="position:absolute; left:873px; top:148px; width:150px; text-align:center; font-size:27px; font-weight:700; color:#E2553D;">Rattle</div>
+      <div style="position:absolute; left:873px; top:192px; width:150px; height:76px;">
+        <div style="position:absolute; left:37px; top:0; width:76px; height:76px; border:1.8px solid #E2553D; border-radius:8px; background:#fff; overflow:hidden;"><img src="assets/box_napf6_dme.png" style="width:100%; height:100%; object-fit:contain;" /></div>
+        <svg width="150" height="76" style="position:absolute; inset:0; overflow:visible;">
+          <g stroke="#E2553D" stroke-width="2.2" fill="none" stroke-linecap="round">
+            <path d="M30 20 Q23 38 30 56"/>
+            <path d="M20 12 Q11 38 20 64"/>
+            <path d="M120 20 Q127 38 120 56"/>
+            <path d="M130 12 Q139 38 130 64"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- relabel box -->
+      <div style="position:absolute; left:1042px; top:180px; width:180px; height:100px; box-sizing:border-box; background:#E5F0F2; border:2px solid #1F7A8C; border-radius:12px; padding:6px; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+        <div style="font-size:27px; font-weight:700; color:#1F7A8C; text-align:center; line-height:1.18; white-space:nowrap;">Relabel<br/>with&nbsp;Teacher</div>
+      </div>
+
+      <!-- ===== convergence : single Training set icon ===== -->
+      <div style="position:absolute; left:1272px; top:97px; width:196px; height:116px; box-sizing:border-box; background:#FCEFE0; border:2px solid #E8923A; border-radius:14px; padding:14px 16px; display:flex; flex-direction:column; justify-content:center;">
+        <div style="font-size:27px; font-weight:700; color:#1F2430; line-height:1.12; white-space:nowrap;">Training set</div>
+        <div style="font-size:27px; font-weight:500; color:#1F2430; margin-top:10px; white-space:nowrap;">E · F · Stress</div>
+      </div>
+
+      <!-- ===== output : Trained per-system student potential (icon above text) ===== -->
+      <div style="position:absolute; left:1532px; top:58px; width:250px; box-sizing:border-box; display:flex; flex-direction:column; align-items:center; gap:9px; background:#E8923A; border-radius:14px; padding:15px 14px;">
+        <div style="flex:none; display:flex; align-items:center; justify-content:center; width:68px; height:54px; border-radius:9px; background:#fff;">
+          <svg width="58" height="45">
+            <g stroke="#C4C8CE" stroke-width="1">
+              <line x1="12" y1="16" x2="33" y2="10"/><line x1="12" y1="16" x2="33" y2="25"/><line x1="12" y1="16" x2="33" y2="40"/>
+              <line x1="12" y1="34" x2="33" y2="10"/><line x1="12" y1="34" x2="33" y2="25"/><line x1="12" y1="34" x2="33" y2="40"/>
+              <line x1="33" y1="10" x2="55" y2="25"/><line x1="33" y1="25" x2="55" y2="25"/><line x1="33" y1="40" x2="55" y2="25"/>
+            </g>
+            <g fill="#1F7A8C"><circle cx="12" cy="16" r="5"/><circle cx="12" cy="34" r="5"/></g>
+            <g fill="#E8923A"><circle cx="33" cy="10" r="5"/><circle cx="33" cy="25" r="5"/><circle cx="33" cy="40" r="5"/></g>
+            <circle cx="55" cy="25" r="5.5" fill="#E8923A" stroke="#CF7A26" stroke-width="1.6"/>
+          </svg>
+        </div>
+        <div style="font-size:27px; font-weight:700; color:#fff; line-height:1.25; text-align:center;">Trained per&#8209;system student potential</div>
+      </div>
+
+      <!-- ===== all connectors (body coordinates) ===== -->
+      <svg width="1768" height="300" style="position:absolute; left:0; top:0; pointer-events:none;">
+        <!-- Teacher -> energy graph : longer arrow, labelled "run MD" -->
+        <line x1="186" y1="155" x2="300" y2="155" stroke="#1F7A8C" stroke-width="5.6"/>
+        <polygon points="312,155 286,141 286,169" fill="#1F7A8C"/>
+        <text x="254" y="141" font-size="27" fill="#1F7A8C" font-family="Helvetica, Arial" text-anchor="middle" font-weight="700">run MD</text>
+
+        <!-- graph snapshots (bottom) -> collected stack : own line below, rising back onto the
+             main line well clear of the plot's x-axis (which ends at x=520) -->
+        <g stroke="#6B7280" stroke-width="3.6" fill="none">
+          <line x1="378" y1="228" x2="378" y2="271"/><line x1="424" y1="228" x2="424" y2="271"/><line x1="470" y1="228" x2="470" y2="271"/>
+          <line x1="378" y1="271" x2="578" y2="271"/>
+          <line x1="578" y1="271" x2="578" y2="155"/>
+          <line x1="578" y1="155" x2="596" y2="155"/>
+        </g>
+        <polygon points="602,155 584,145 584,165" fill="#6B7280"/>
+
+        <!-- collected -> symmetric 50/50 split about the main line -->
+        <g stroke="#6B7280" stroke-width="3.6" fill="none">
+          <line x1="724" y1="155" x2="759" y2="155"/>
+          <line x1="759" y1="80" x2="759" y2="230"/>
+          <!-- upper 50% : straight across, then drops into the training set -->
+          <line x1="759" y1="80" x2="1236" y2="80"/>
+          <line x1="1236" y1="80" x2="1236" y2="132"/>
+          <line x1="1236" y1="132" x2="1264" y2="132"/>
+          <!-- lower 50% : across to Rattle -->
+          <line x1="759" y1="230" x2="876" y2="230"/>
+        </g>
+        <polygon points="1272,132 1254,122 1254,142" fill="#6B7280"/>
+        <polygon points="884,230 866,220 866,240" fill="#6B7280"/>
+        <text x="821" y="80" font-size="32" font-weight="700" fill="#6B7280" font-family="Helvetica, Arial" text-anchor="middle" dominant-baseline="middle" stroke="#F7F8FA" stroke-width="8" paint-order="stroke">50%</text>
+        <text x="821" y="230" font-size="32" font-weight="700" fill="#6B7280" font-family="Helvetica, Arial" text-anchor="middle" dominant-baseline="middle" stroke="#F7F8FA" stroke-width="8" paint-order="stroke">50%</text>
+
+        <!-- Rattle -> Relabel -->
+        <line x1="1012" y1="230" x2="1038" y2="230" stroke="#6B7280" stroke-width="3.6"/>
+        <polygon points="1042,230 1024,220 1024,240" fill="#6B7280"/>
+        <!-- Relabel -> training set : rises to its own, separate arrow -->
+        <g stroke="#6B7280" stroke-width="3.6" fill="none">
+          <line x1="1222" y1="230" x2="1236" y2="230"/>
+          <line x1="1236" y1="230" x2="1236" y2="178"/>
+          <line x1="1236" y1="178" x2="1264" y2="178"/>
+        </g>
+        <polygon points="1272,178 1254,168 1254,188" fill="#6B7280"/>
+
+        <!-- training set -> trained student potential -->
+        <line x1="1468" y1="155" x2="1525" y2="155" stroke="#6B7280" stroke-width="4.8"/>
+        <polygon points="1532,155 1514,143 1514,167" fill="#6B7280"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ============ PANEL 5 ============ -->
+  <div style="position:absolute; left:40px; top:490px; width:900px; height:555px; box-sizing:border-box; background:#F7F8FA; border:1px solid #E6E8EC; border-radius:14px; padding:26px 28px; display:flex; flex-direction:column;">
+    <div style="display:flex; align-items:center; gap:14px;">
+      <div style="flex:none; width:44px; height:44px; border-radius:50%; background:#AEB4BC; color:#fff; font-weight:700; font-size:27px; display:flex; align-items:center; justify-content:center;">2</div>
+      <div style="font-size:32px; font-weight:600; line-height:1.1; white-space:nowrap;">Run long production simulations with Student</div>
+    </div>
+
+    <!-- stacked comparison cards -->
+    <div style="display:flex; flex-direction:column; gap:22px; margin-top:22px; flex:1;">
+
+      <!-- SPEED card -->
+      <div style="flex:1; box-sizing:border-box; background:#fff; border:1.5px solid #E6E8EC; border-radius:14px; padding:16px 34px; display:flex; flex-direction:column; justify-content:center;">
+        <div style="font-size:27px; font-weight:700; color:#6B7280; letter-spacing:1.5px;">SIMULATION SPEED</div>
+        <div style="margin-top:14px; display:flex; flex-direction:column; gap:14px;">
+          <!-- Teacher row -->
+          <div style="display:flex; align-items:center; gap:16px;">
+            <div style="flex:none; width:64px; height:46px; border:1.8px solid #1F7A8C; border-radius:9px; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                <svg width="60" height="40" viewBox="0 0 176 118">
+                  <g stroke="#C4C8CE" stroke-width="2.2">
+                    <line x1="14" y1="30" x2="50" y2="18"/><line x1="14" y1="30" x2="50" y2="46"/><line x1="14" y1="30" x2="50" y2="74"/><line x1="14" y1="30" x2="50" y2="102"/>
+                    <line x1="14" y1="58" x2="50" y2="18"/><line x1="14" y1="58" x2="50" y2="46"/><line x1="14" y1="58" x2="50" y2="74"/><line x1="14" y1="58" x2="50" y2="102"/>
+                    <line x1="14" y1="86" x2="50" y2="18"/><line x1="14" y1="86" x2="50" y2="46"/><line x1="14" y1="86" x2="50" y2="74"/><line x1="14" y1="86" x2="50" y2="102"/>
+                    <line x1="50" y1="18" x2="86" y2="18"/><line x1="50" y1="18" x2="86" y2="46"/><line x1="50" y1="18" x2="86" y2="74"/><line x1="50" y1="18" x2="86" y2="102"/>
+                    <line x1="50" y1="46" x2="86" y2="18"/><line x1="50" y1="46" x2="86" y2="46"/><line x1="50" y1="46" x2="86" y2="74"/><line x1="50" y1="46" x2="86" y2="102"/>
+                    <line x1="50" y1="74" x2="86" y2="18"/><line x1="50" y1="74" x2="86" y2="46"/><line x1="50" y1="74" x2="86" y2="74"/><line x1="50" y1="74" x2="86" y2="102"/>
+                    <line x1="50" y1="102" x2="86" y2="18"/><line x1="50" y1="102" x2="86" y2="46"/><line x1="50" y1="102" x2="86" y2="74"/><line x1="50" y1="102" x2="86" y2="102"/>
+                    <line x1="86" y1="18" x2="122" y2="18"/><line x1="86" y1="18" x2="122" y2="46"/><line x1="86" y1="18" x2="122" y2="74"/><line x1="86" y1="18" x2="122" y2="102"/>
+                    <line x1="86" y1="46" x2="122" y2="18"/><line x1="86" y1="46" x2="122" y2="46"/><line x1="86" y1="46" x2="122" y2="74"/><line x1="86" y1="46" x2="122" y2="102"/>
+                    <line x1="86" y1="74" x2="122" y2="18"/><line x1="86" y1="74" x2="122" y2="46"/><line x1="86" y1="74" x2="122" y2="74"/><line x1="86" y1="74" x2="122" y2="102"/>
+                    <line x1="86" y1="102" x2="122" y2="18"/><line x1="86" y1="102" x2="122" y2="46"/><line x1="86" y1="102" x2="122" y2="74"/><line x1="86" y1="102" x2="122" y2="102"/>
+                    <line x1="122" y1="18" x2="156" y2="58"/><line x1="122" y1="46" x2="156" y2="58"/><line x1="122" y1="74" x2="156" y2="58"/><line x1="122" y1="102" x2="156" y2="58"/>
+                  </g>
+                  <g fill="#1F7A8C"><circle cx="14" cy="30" r="6"/><circle cx="14" cy="58" r="6"/><circle cx="14" cy="86" r="6"/><circle cx="50" cy="18" r="6"/><circle cx="50" cy="46" r="6"/><circle cx="50" cy="74" r="6"/><circle cx="50" cy="102" r="6"/><circle cx="86" cy="18" r="6"/><circle cx="86" cy="46" r="6"/><circle cx="86" cy="74" r="6"/><circle cx="86" cy="102" r="6"/><circle cx="122" cy="18" r="6"/><circle cx="122" cy="46" r="6"/><circle cx="122" cy="74" r="6"/><circle cx="122" cy="102" r="6"/></g>
+                  <circle cx="156" cy="58" r="7.5" fill="#1F7A8C" stroke="#155E6E" stroke-width="2.2"/>
+                </svg>
+              </div>
+            <div style="width:140px; flex:none; font-size:32px; font-weight:700; color:#1F7A8C;">Teacher</div>
+            <div style="width:14px; height:40px; background:#1F7A8C; border-radius:3px; flex:none;"></div>
+            <div style="font-size:32px; font-weight:600; color:#1F7A8C;">0.23 ns/day</div>
+          </div>
+          <!-- Student row -->
+          <div style="display:flex; align-items:center; gap:16px;">
+            <div style="flex:none; width:64px; height:46px; border:1.8px solid #E8923A; border-radius:9px; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                <svg width="58" height="43" viewBox="0 0 66 50">
+                  <g stroke="#C4C8CE" stroke-width="1.4">
+                    <line x1="12" y1="16" x2="33" y2="10"/><line x1="12" y1="16" x2="33" y2="25"/><line x1="12" y1="16" x2="33" y2="40"/>
+                    <line x1="12" y1="34" x2="33" y2="10"/><line x1="12" y1="34" x2="33" y2="25"/><line x1="12" y1="34" x2="33" y2="40"/>
+                    <line x1="33" y1="10" x2="55" y2="25"/><line x1="33" y1="25" x2="55" y2="25"/><line x1="33" y1="40" x2="55" y2="25"/>
+                  </g>
+                  <g fill="#1F7A8C"><circle cx="12" cy="16" r="5"/><circle cx="12" cy="34" r="5"/></g>
+                  <g fill="#E8923A"><circle cx="33" cy="10" r="5"/><circle cx="33" cy="25" r="5"/><circle cx="33" cy="40" r="5"/></g>
+                  <circle cx="55" cy="25" r="5.5" fill="#E8923A" stroke="#CF7A26" stroke-width="1.6"/>
+                </svg>
+              </div>
+            <div style="width:140px; flex:none; font-size:32px; font-weight:700; color:#E8923A;">Student</div>
+            <div style="width:300px; height:40px; background:#E8923A; border-radius:4px; flex:none; display:flex; align-items:center; justify-content:flex-end; padding-right:16px; box-sizing:border-box;"><span style="font-size:32px; font-weight:700; color:#fff;">9.5 ns/day</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LENGTH card -->
+      <div style="flex:1; box-sizing:border-box; background:#fff; border:1.5px solid #E6E8EC; border-radius:14px; padding:16px 34px; display:flex; flex-direction:column; justify-content:center;">
+        <div style="font-size:27px; font-weight:700; color:#6B7280; letter-spacing:1.5px;">TRAJECTORY LENGTH</div>
+        <div style="margin-top:14px; display:flex; flex-direction:column; gap:14px;">
+          <!-- Teacher row -->
+          <div style="display:flex; align-items:center; gap:16px;">
+            <div style="flex:none; width:64px; height:46px; border:1.8px solid #1F7A8C; border-radius:9px; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                <svg width="60" height="40" viewBox="0 0 176 118">
+                  <g stroke="#C4C8CE" stroke-width="2.2">
+                    <line x1="14" y1="30" x2="50" y2="18"/><line x1="14" y1="30" x2="50" y2="46"/><line x1="14" y1="30" x2="50" y2="74"/><line x1="14" y1="30" x2="50" y2="102"/>
+                    <line x1="14" y1="58" x2="50" y2="18"/><line x1="14" y1="58" x2="50" y2="46"/><line x1="14" y1="58" x2="50" y2="74"/><line x1="14" y1="58" x2="50" y2="102"/>
+                    <line x1="14" y1="86" x2="50" y2="18"/><line x1="14" y1="86" x2="50" y2="46"/><line x1="14" y1="86" x2="50" y2="74"/><line x1="14" y1="86" x2="50" y2="102"/>
+                    <line x1="50" y1="18" x2="86" y2="18"/><line x1="50" y1="18" x2="86" y2="46"/><line x1="50" y1="18" x2="86" y2="74"/><line x1="50" y1="18" x2="86" y2="102"/>
+                    <line x1="50" y1="46" x2="86" y2="18"/><line x1="50" y1="46" x2="86" y2="46"/><line x1="50" y1="46" x2="86" y2="74"/><line x1="50" y1="46" x2="86" y2="102"/>
+                    <line x1="50" y1="74" x2="86" y2="18"/><line x1="50" y1="74" x2="86" y2="46"/><line x1="50" y1="74" x2="86" y2="74"/><line x1="50" y1="74" x2="86" y2="102"/>
+                    <line x1="50" y1="102" x2="86" y2="18"/><line x1="50" y1="102" x2="86" y2="46"/><line x1="50" y1="102" x2="86" y2="74"/><line x1="50" y1="102" x2="86" y2="102"/>
+                    <line x1="86" y1="18" x2="122" y2="18"/><line x1="86" y1="18" x2="122" y2="46"/><line x1="86" y1="18" x2="122" y2="74"/><line x1="86" y1="18" x2="122" y2="102"/>
+                    <line x1="86" y1="46" x2="122" y2="18"/><line x1="86" y1="46" x2="122" y2="46"/><line x1="86" y1="46" x2="122" y2="74"/><line x1="86" y1="46" x2="122" y2="102"/>
+                    <line x1="86" y1="74" x2="122" y2="18"/><line x1="86" y1="74" x2="122" y2="46"/><line x1="86" y1="74" x2="122" y2="74"/><line x1="86" y1="74" x2="122" y2="102"/>
+                    <line x1="86" y1="102" x2="122" y2="18"/><line x1="86" y1="102" x2="122" y2="46"/><line x1="86" y1="102" x2="122" y2="74"/><line x1="86" y1="102" x2="122" y2="102"/>
+                    <line x1="122" y1="18" x2="156" y2="58"/><line x1="122" y1="46" x2="156" y2="58"/><line x1="122" y1="74" x2="156" y2="58"/><line x1="122" y1="102" x2="156" y2="58"/>
+                  </g>
+                  <g fill="#1F7A8C"><circle cx="14" cy="30" r="6"/><circle cx="14" cy="58" r="6"/><circle cx="14" cy="86" r="6"/><circle cx="50" cy="18" r="6"/><circle cx="50" cy="46" r="6"/><circle cx="50" cy="74" r="6"/><circle cx="50" cy="102" r="6"/><circle cx="86" cy="18" r="6"/><circle cx="86" cy="46" r="6"/><circle cx="86" cy="74" r="6"/><circle cx="86" cy="102" r="6"/><circle cx="122" cy="18" r="6"/><circle cx="122" cy="46" r="6"/><circle cx="122" cy="74" r="6"/><circle cx="122" cy="102" r="6"/></g>
+                  <circle cx="156" cy="58" r="7.5" fill="#1F7A8C" stroke="#155E6E" stroke-width="2.2"/>
+                </svg>
+              </div>
+            <div style="width:140px; flex:none; font-size:32px; font-weight:700; color:#1F7A8C;">Teacher</div>
+            <div style="width:14px; height:22px; background:#1F7A8C; border-radius:3px; flex:none;"></div>
+            <div style="font-size:32px; font-weight:600; color:#1F7A8C; white-space:nowrap;">100 ps<span style="display:inline-block; width:14px;"></span>(used for training)</div>
+          </div>
+          <!-- Student row -->
+          <div style="display:flex; align-items:center; gap:16px;">
+            <div style="flex:none; width:64px; height:46px; border:1.8px solid #E8923A; border-radius:9px; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                <svg width="58" height="43" viewBox="0 0 66 50">
+                  <g stroke="#C4C8CE" stroke-width="1.4">
+                    <line x1="12" y1="16" x2="33" y2="10"/><line x1="12" y1="16" x2="33" y2="25"/><line x1="12" y1="16" x2="33" y2="40"/>
+                    <line x1="12" y1="34" x2="33" y2="10"/><line x1="12" y1="34" x2="33" y2="25"/><line x1="12" y1="34" x2="33" y2="40"/>
+                    <line x1="33" y1="10" x2="55" y2="25"/><line x1="33" y1="25" x2="55" y2="25"/><line x1="33" y1="40" x2="55" y2="25"/>
+                  </g>
+                  <g fill="#1F7A8C"><circle cx="12" cy="16" r="5"/><circle cx="12" cy="34" r="5"/></g>
+                  <g fill="#E8923A"><circle cx="33" cy="10" r="5"/><circle cx="33" cy="25" r="5"/><circle cx="33" cy="40" r="5"/></g>
+                  <circle cx="55" cy="25" r="5.5" fill="#E8923A" stroke="#CF7A26" stroke-width="1.6"/>
+                </svg>
+              </div>
+            <div style="width:140px; flex:none; font-size:32px; font-weight:700; color:#E8923A;">Student</div>
+            <div style="flex:none; display:flex; flex-direction:column; gap:5px;">
+              <div style="width:240px; height:10px; background:#E8923A; border-radius:2px;"></div>
+              <div style="width:240px; height:10px; background:#E8923A; border-radius:2px;"></div>
+              <div style="width:240px; height:10px; background:#E8923A; border-radius:2px;"></div>
+              <div style="width:240px; height:10px; background:#E8923A; border-radius:2px;"></div>
+            </div>
+            <div style="font-size:32px; font-weight:600; color:#E8923A; white-space:nowrap;">4 replicas &#215; 20 ns</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PANEL 6 ============ -->
+  <div style="position:absolute; left:980px; top:490px; width:900px; height:555px; box-sizing:border-box; background:#F7F8FA; border:1px solid #E6E8EC; border-radius:14px; padding:26px 28px;">
+    <div style="display:flex; align-items:center; gap:14px;">
+      <div style="flex:none; width:44px; height:44px; border-radius:50%; background:#AEB4BC; color:#fff; font-weight:700; font-size:27px; display:flex; align-items:center; justify-content:center;">3</div>
+      <div style="font-size:32px; font-weight:600; line-height:1.1; white-space:nowrap;">Compute transport properties</div>
+    </div>
+
+    <!-- convergence story: running-average trace (left) + 1 ns vs 20 ns parity (right) -->
+    <div style="display:flex; gap:14px; margin-top:14px; align-items:flex-start;">
+
+      <!-- LEFT: running estimate of D vs simulation time -->
+      <div style="flex:none; width:482px;">
+        <svg width="482" height="400">
+          <!-- uncertainty band: wide at short t, narrows onto experiment by 20 ns -->
+          <polygon points="70,52 110,60 146,64 160,68 220,108 290,124 370,132 455,131 455,149 370,156 290,168 220,188 160,250 146,260 110,280 70,300" fill="#E8923A" opacity="0.16"/>
+
+          <!-- experiment value -->
+          <line x1="70" y1="140" x2="466" y2="140" stroke="#6B7280" stroke-width="1.6" stroke-dasharray="7 5"/>
+          <text x="463" y="132" font-size="27" fill="#6B7280" font-family="Helvetica, Arial" text-anchor="end">experiment</text>
+
+          <!-- running estimate of D (bold orange) -->
+          <polyline points="72,250 90,182 108,298 126,150 144,248 160,94 190,188 220,120 250,166 290,131 330,148 370,138 410,143 455,140" fill="none" stroke="#CF7A26" stroke-width="3.6" stroke-linejoin="round"/>
+
+          <!-- 1 ns marker -->
+          <line x1="160" y1="24" x2="160" y2="336" stroke="#6B7280" stroke-width="1.4" stroke-dasharray="4 4" opacity="0.7"/>
+
+          <!-- axes -->
+          <line x1="70" y1="24" x2="70" y2="336" stroke="#6B7280" stroke-width="1.6"/>
+          <line x1="70" y1="336" x2="466" y2="336" stroke="#6B7280" stroke-width="1.6"/>
+
+          <!-- x-axis tick markers at 1 ns and 20 ns -->
+          <line x1="160" y1="336" x2="160" y2="346" stroke="#1F2430" stroke-width="2"/>
+          <line x1="455" y1="336" x2="455" y2="346" stroke="#1F2430" stroke-width="2"/>
+
+          <!-- region annotations -->
+          <text x="84" y="44" font-size="27" fill="#CF7A26" font-family="Helvetica, Arial" font-weight="700">not converged</text>
+          <text x="452" y="184" font-size="27" fill="#3E9E7A" font-family="Helvetica, Arial" font-weight="700" text-anchor="end">converged</text>
+
+          <!-- tick labels -->
+          <text x="70" y="364" font-size="27" fill="#6B7280" font-family="Helvetica, Arial" text-anchor="middle">0</text>
+          <text x="160" y="364" font-size="27" fill="#1F2430" font-family="Helvetica, Arial" text-anchor="middle" font-weight="700">1 ns</text>
+          <text x="446" y="364" font-size="27" fill="#1F2430" font-family="Helvetica, Arial" text-anchor="middle" font-weight="700">20 ns</text>
+
+          <!-- axis titles -->
+          <text x="26" y="180" transform="rotate(-90 26 180)" font-size="27" fill="#6B7280" font-family="Helvetica, Arial" text-anchor="middle">Running Diffusivity Estimate</text>
+          <text x="268" y="394" font-size="27" fill="#6B7280" font-family="Helvetica, Arial" text-anchor="middle">simulation time</text>
+        </svg>
+      </div>
+
+      <!-- RIGHT: 1 ns vs 20 ns parity insets -->
+      <div style="flex:none; width:344px; display:flex; flex-direction:column; gap:12px; padding-top:4px;">
+
+        <!-- 1 ns: scattered -->
+        <div>
+          <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:1px;">
+            <div style="font-size:27px; font-weight:700; color:#1F2430;">1 ns</div>
+            <div style="font-size:27px; font-weight:600; color:#E2553D;">noisy, off&#8209;experiment</div>
+          </div>
+          <svg width="344" height="158">
+            <line x1="60" y1="127" x2="326" y2="18" stroke="#6B7280" stroke-width="1.5" stroke-dasharray="6 5"/>
+            <!-- error bars then dots -->
+            <g stroke-width="1.6">
+              <line x1="92" y1="70" x2="92" y2="102" stroke="#1F7A8C"/><line x1="120" y1="112" x2="120" y2="144" stroke="#E8923A"/><line x1="150" y1="56" x2="150" y2="88" stroke="#8E5CC8"/><line x1="186" y1="92" x2="186" y2="124" stroke="#3E9E7A"/><line x1="214" y1="36" x2="214" y2="68" stroke="#E2553D"/><line x1="250" y1="80" x2="250" y2="112" stroke="#1F7A8C"/><line x1="292" y1="28" x2="292" y2="60" stroke="#E8923A"/>
+            </g>
+            <g>
+              <circle cx="92" cy="86" r="6.5" fill="#1F7A8C"/><circle cx="120" cy="128" r="6.5" fill="#E8923A"/><circle cx="150" cy="72" r="6.5" fill="#8E5CC8"/><circle cx="186" cy="108" r="6.5" fill="#3E9E7A"/><circle cx="214" cy="52" r="6.5" fill="#E2553D"/><circle cx="250" cy="96" r="6.5" fill="#1F7A8C"/><circle cx="292" cy="44" r="6.5" fill="#E8923A"/>
+            </g>
+            <line x1="54" y1="12" x2="54" y2="130" stroke="#6B7280" stroke-width="1.5"/>
+            <line x1="54" y1="130" x2="330" y2="130" stroke="#6B7280" stroke-width="1.5"/>
+            <text x="22" y="71" transform="rotate(-90 22 71)" font-size="27" fill="#6B7280" font-family="Helvetica, Arial" text-anchor="middle">predicted</text>
+            <text x="192" y="153" font-size="27" fill="#6B7280" font-family="Helvetica, Arial" text-anchor="middle">experiment</text>
+          </svg>
+        </div>
+
+        <!-- 20 ns: tight on the diagonal -->
+        <div>
+          <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:1px;">
+            <div style="font-size:27px; font-weight:700; color:#1F2430;">20 ns</div>
+            <div style="font-size:27px; font-weight:600; color:#3E9E7A; white-space:nowrap;">close to experiment</div>
+          </div>
+          <svg width="344" height="158">
+            <line x1="60" y1="127" x2="326" y2="18" stroke="#6B7280" stroke-width="1.5" stroke-dasharray="6 5"/>
+            <g>
+              <circle cx="92" cy="121" r="6.5" fill="#1F7A8C"/><circle cx="120" cy="118" r="6.5" fill="#E8923A"/><circle cx="150" cy="100" r="6.5" fill="#8E5CC8"/><circle cx="186" cy="90" r="6.5" fill="#3E9E7A"/><circle cx="214" cy="75" r="6.5" fill="#E2553D"/><circle cx="250" cy="67" r="6.5" fill="#1F7A8C"/><circle cx="292" cy="44" r="6.5" fill="#E8923A"/>
+            </g>
+            <line x1="54" y1="12" x2="54" y2="130" stroke="#6B7280" stroke-width="1.5"/>
+            <line x1="54" y1="130" x2="330" y2="130" stroke="#6B7280" stroke-width="1.5"/>
+            <text x="22" y="71" transform="rotate(-90 22 71)" font-size="27" fill="#6B7280" font-family="Helvetica, Arial" text-anchor="middle">predicted</text>
+            <text x="192" y="153" font-size="27" fill="#6B7280" font-family="Helvetica, Arial" text-anchor="middle">experiment</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ARROW OVERLAY ============ -->
+  <svg width="1920" height="1081" style="position:absolute; inset:0; pointer-events:none; z-index:5;">
+    <defs>
+      <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="20" refX="15" refY="10" orient="auto"><path d="M0 0 L22 10 L0 20 Z" fill="#6B7280"/></marker>
+    </defs>
+    <!-- 1 (Student output) -> 2 (production), from box bottom, wrap down-left -->
+    <path d="M1733 380 L1733 456 L490 456 L490 474" fill="none" stroke="#6B7280" stroke-width="4.8"/>
+    <polygon points="490,490 480,468 500,468" fill="#6B7280"/>
+    <!-- 2 -> 3 (production feeds transport) -->
+    <line x1="940" y1="767" x2="974" y2="767" stroke="#6B7280" stroke-width="3.4" marker-end="url(#ah)"/>
+  </svg>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1920,&quot;height&quot;:1081}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      showLegend: this.props.showLegend ?? true,
+    };
+  }
+}
+</script>
+<script>
+(async () => {
+  if (!document.title || !document.title.trim()) document.title = "Figure 1 - Workflow overview";
+  // Prepend so page-supplied @page / break rules (deck-stage's margin:0,
+  // author CSS) keep source-order precedence over the baseline.
+  const baseCss = document.createElement('style');
+  baseCss.textContent = "@media print {\n  figure, table { break-inside: avoid; }\n  *, *::before, *::after {\n    print-color-adjust: exact; -webkit-print-color-adjust: exact;\n    backdrop-filter: none !important; -webkit-backdrop-filter: none !important;\n    animation-delay: -99s !important; animation-duration: .001s !important;\n    animation-iteration-count: 1 !important; animation-fill-mode: both !important;\n    animation-play-state: running !important; transition-duration: 0s !important;\n  }\n}";
+  document.head.prepend(baseCss);
+  if (document.readyState === 'loading') {
+    await new Promise((r) => document.addEventListener('DOMContentLoaded', r, { once: true }));
+  }
+  let ds = document.querySelector('deck-stage');
+  // whenDefined never resolves when nothing registers the element, so only
+  // await it when a <deck-stage> tag exists (and race a timeout regardless).
+  if (ds && !customElements.get('deck-stage')) {
+    try {
+      await Promise.race([
+        customElements.whenDefined('deck-stage'),
+        new Promise((r) => setTimeout(r, 3000)),
+      ]);
+    } catch (e) {}
+    ds = document.querySelector('deck-stage');
+  }
+  // dc-runtime assigns window.DCLogic at init and mounts into #dc-root on
+  // DOMContentLoaded; settle on that subtree so React has rendered before
+  // print(). Non-DC pages fall through to weighing body.
+  const isDc = !ds && 'DCLogic' in window;
+  const settleRoot = ds || (isDc ? document.getElementById('dc-root') : null) || document.body;
+  if (settleRoot) {
+    // Weigh only content children — skip script/style/template so inline
+    // Babel/CSS doesn't register as stable "content" before the framework
+    // has mounted anything.
+    const MEDIA = 'img,svg,canvas,video,picture,iframe,embed,object';
+    const weigh = () => {
+      let text = 0, media = 0;
+      for (const c of settleRoot.children) {
+        const t = c.tagName;
+        if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+        text += (c.textContent || '').trim().length;
+        media += c.querySelectorAll(MEDIA).length + (c.matches(MEDIA) ? 1 : 0);
+      }
+      return text + media * 100;
+    };
+    // "Non-zero and stable" alone is not sufficient to mean rendered: generic
+    // body can carry a static shell while async main content is pending, and
+    // #dc-root can carry the root DC's static text while child refs are still
+    // .sc-placeholder boxes. Gate generic on readyState 'complete', and never
+    // accept stability while a dc-runtime placeholder is present.
+    const isGeneric = settleRoot === document.body;
+    const deadline = Date.now() + 15000;
+    let last = -1, stable = 0;
+    while (Date.now() < deadline) {
+      const n = weigh();
+      const ready =
+        (!isGeneric || document.readyState === 'complete') &&
+        !settleRoot.querySelector('.sc-placeholder');
+      if (n > 0 && n === last && ready) { if (++stable >= 2) break; } else { stable = 0; }
+      last = n;
+      await new Promise((r) => setTimeout(r, 250));
+    }
+  }
+  // Project support.js may predate runtime default-seeding; push via bridge.
+  if (isDc && window.__dcSetProps && window.__dcRootName) {
+    try {
+      const dpEl = document.querySelector('script[data-dc-script]');
+      const meta = JSON.parse((dpEl && dpEl.getAttribute('data-props')) || '{}');
+      const bag = {};
+      for (const k in meta)
+        if (k[0] !== '$' && meta[k] && meta[k].default !== undefined)
+          bag[k] = meta[k].default;
+      if (Object.keys(bag).length) {
+        window.__dcSetProps(window.__dcRootName(), bag);
+        await new Promise((r) => setTimeout(r, 50));
+      }
+    } catch (e) {}
+  }
+  // Reveal content gated on scroll or visibility before printing. Lazy <img>,
+  // IntersectionObserver fade-ins, and collapsed <details> don't render while
+  // off-screen, so a long page would print with them blank or closed. Open
+  // every <details>, force native-lazy images eager, and scroll the document
+  // through its full height to trip lazy-load + IO; then wait (bounded) for the
+  // newly-triggered images. Inert for deck-stage (slides aren't scroll-gated).
+  try {
+    for (const d of document.querySelectorAll('details')) d.open = true;
+    for (const img of document.querySelectorAll('img[loading="lazy"]'))
+      img.loading = 'eager';
+    const scroller = document.scrollingElement || document.documentElement;
+    const full = Math.max(scroller.scrollHeight, document.body.scrollHeight);
+    const step = window.innerHeight || 800;
+    for (let y = 0; y <= full; y += step) {
+      window.scrollTo(0, y);
+      await new Promise((r) => requestAnimationFrame(r));
+    }
+    window.scrollTo(0, 0);
+    await Promise.race([
+      Promise.all(
+        [...document.images].map((img) =>
+          img.complete
+            ? null
+            : new Promise((res) => {
+                img.addEventListener('load', res, { once: true });
+                img.addEventListener('error', res, { once: true });
+              })
+        )
+      ),
+      new Promise((r) => setTimeout(r, 4000)),
+    ]);
+  } catch (e) {}
+  try { await document.fonts.ready; } catch (e) {}
+  // Jump every animation to its end state so print() never captures a slide
+  // mid-entrance. Ordering matters: the 0s-transition style must be live
+  // BEFORE data-deck-active is set so attribute-keyed transitions don't
+  // start a (now-0s) run from the pre-active base.
+  const st = document.createElement('style');
+  st.textContent = '*,*::before,*::after{animation-delay:-99s !important;animation-duration:.001s !important;animation-iteration-count:1 !important;animation-fill-mode:both !important;animation-play-state:running !important;transition-duration:0s !important}';
+  document.head.appendChild(st);
+  for (const d of document.querySelectorAll('deck-stage')) {
+    for (const c of d.children) {
+      const t = c.tagName;
+      if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+      c.setAttribute('data-deck-active', '');
+    }
+  }
+  // Re-append deck-stage's @page last so no author @page can add a margin and
+  // spill each full-bleed slide onto two sheets. Backstop for old copies.
+  if (ds) {
+    let pg = document.getElementById('deck-stage-print-page');
+    if (!pg) {
+      pg = document.createElement('style');
+      pg.textContent = '@page{size:' + (+ds.getAttribute('width') || 1920) +
+        'px ' + (+ds.getAttribute('height') || 1080) + 'px;margin:0}';
+    }
+    document.body.appendChild(pg);
+  }
+  try {
+    const sweep = () => {
+      for (const a of document.getAnimations()) {
+        try { a.finish(); } catch (e) {
+          try { a.currentTime = (a.effect && a.effect.getComputedTiming().duration) || 0; a.pause(); } catch (e2) {}
+        }
+      }
+    };
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+  } catch (e) {}
+  // Size the PDF page to the rendered design unless the file opted into
+  // standard paper via @page{size:letter|A4|…}. Decks own their own @page.
+  // Wrappers (body, …) lose padding+margin so the frame sits at (0,0); the
+  // frame itself loses only margin — its padding is INSIDE the measured
+  // rect and must stay, or content shifts and leaves a gap at bottom/right.
+  var __m = null;
+  try { __m = (() => {
+  var docEl = document.documentElement;
+  var doc = { width: docEl.scrollWidth, height: docEl.scrollHeight };
+
+  var ds = document.querySelector('deck-stage');
+  if (ds) {
+    var dw = Number(ds.getAttribute('width')) || 1920;
+    var dh = Number(ds.getAttribute('height')) || 1080;
+    var n = typeof ds.length === 'number' ? ds.length : ds.children.length;
+    var idx = typeof ds.index === 'number' ? ds.index : 0;
+    var frames = [];
+    for (var i = 0; i < n; i++) frames.push({ left: 0, top: 0, width: dw, height: dh });
+    return { kind: 'deck', doc: doc, frames: frames,
+      authored: frames.map(function(){return{width:true,height:true}}),
+      deck: { width: dw, height: dh, slideCount: n, index: idx },
+      signals: { paperPage: false, pxPage: false } };
+  }
+
+  var paperPage = false, pxPage = false;
+  var eachRule = function (fn) {
+    for (var s = 0; s < document.styleSheets.length; s++) {
+      var rs; try { rs = document.styleSheets[s].cssRules; } catch (e) { continue; }
+      for (var r = 0; r < rs.length; r++) {
+        fn(rs[r]);
+        if (rs[r].cssRules) for (var n = 0; n < rs[r].cssRules.length; n++) fn(rs[r].cssRules[n]);
+      }
+    }
+  };
+  eachRule(function (r) {
+    if (r.type !== 6) return;
+    var m = /\bsize\s*:\s*([^;}]+)/i.exec(r.cssText || '');
+    if (!m) return;
+    if (/\b(letter|a[3-5]|legal|ledger)\b/i.test(m[1])) paperPage = true;
+    if (/\d+(?:\.\d+)?px\b/i.test(m[1])) pxPage = true;
+  });
+  var signals = { paperPage: paperPage, pxPage: pxPage };
+
+  var pxVal = function (v) {
+    var m = /^(\d+(?:\.\d+)?)px$/.exec(v || ''); return m ? +m[1] : 0;
+  };
+  var authoredPx = function (el, prop) {
+    if (pxVal(el.style[prop])) return true;
+    var attr = el.getAttribute(prop);
+    if (attr && /^\d+$/.test(attr)) return true;
+    var hit = false;
+    eachRule(function (r) {
+      if (hit || r.type !== 1 || !r.style) return;
+      try { if (el.matches(r.selectorText) && pxVal(r.style[prop])) hit = true; } catch (e) {}
+    });
+    return hit;
+  };
+
+  var el = document.body, rootPxW = false;
+  for (;;) {
+    var kids = [];
+    for (var c = 0; c < el.children.length; c++) {
+      var t = el.children[c].tagName;
+      if (t !== 'SCRIPT' && t !== 'STYLE' && t !== 'TEMPLATE') kids.push(el.children[c]);
+    }
+    if (kids.length !== 1 || !(kids[0] instanceof HTMLElement)) break;
+    el.setAttribute('data-om-frame-wrap', '');
+    el = kids[0];
+    rootPxW = authoredPx(el, 'width');
+    if (rootPxW) break;
+  }
+  if (!rootPxW) rootPxW = authoredPx(el, 'width');
+
+  // @page{size:letter} alone is a flowing doc; with a px-width root it's a
+  // fixed sheet pretending to be paper — fall through and size to render.
+  if (paperPage && !rootPxW) {
+    return { kind: 'paper-doc', doc: doc, signals: signals,
+      frames: [{ left: 0, top: 0, width: doc.width, height: doc.height }],
+      authored: [{ width: false, height: false }] };
+  }
+
+  var sx = window.scrollX || 0, sy = window.scrollY || 0;
+  var rectOf = function (e) {
+    var r = e.getBoundingClientRect();
+    var oy; try { oy = getComputedStyle(e).overflowY; } catch (err) {}
+    var h = oy === 'visible' ? Math.max(r.height, e.scrollHeight || 0) : r.height;
+    return { left: r.left + sx, top: r.top + sy, width: r.width, height: h };
+  };
+
+  // Multi-frame: ≥2 visible non-fixed children, each with authored px width
+  // AND height, all within ±2px of each other. Off unless the page opts in
+  // via data-om-multi-frame on the stop element — guards against card grids
+  // and pricing tables that match the geometry but aren't separate canvases.
+  if (el.hasAttribute('data-om-multi-frame')) {
+    var cands = [];
+    for (var k = 0; k < el.children.length; k++) {
+      var ch = el.children[k];
+      var cs; try { cs = getComputedStyle(ch); } catch (e) { continue; }
+      if (cs.display === 'none' || cs.visibility === 'hidden' || cs.position === 'fixed') continue;
+      var rc = rectOf(ch);
+      if (rc.width < 2 || rc.height < 2) continue;
+      if (!authoredPx(ch, 'width') || !authoredPx(ch, 'height')) continue;
+      cands.push(rc);
+    }
+    if (cands.length >= 2) {
+      var w0 = cands[0].width, h0 = cands[0].height, ok = true;
+      for (var q = 1; q < cands.length; q++)
+        if (Math.abs(cands[q].width - w0) > 2 || Math.abs(cands[q].height - h0) > 2) ok = false;
+      if (ok) return { kind: 'multi-frame', doc: doc, signals: signals,
+        frames: cands, authored: cands.map(function(){return{width:true,height:true}}) };
+    }
+  }
+
+  el.setAttribute('data-om-frame', '');
+  return { kind: 'single-canvas', doc: doc, signals: signals,
+    frames: [rectOf(el)],
+    authored: [{ width: rootPxW, height: authoredPx(el, 'height') }] };
+})(); } catch (e) {}
+  var frame = null;
+  if (__m && __m.kind === 'single-canvas') {
+    var f = __m.frames && __m.frames[0];
+    if (f && f.width >= 200 && f.height >= 200) {
+      frame = f;
+      var fst = document.createElement('style');
+      fst.textContent = '@media print{@page{size:' + Math.ceil(f.width) + 'px ' +
+        Math.ceil(f.height) + 'px;margin:0}' +
+        'html,body,[data-om-frame-wrap]{padding:0!important;margin:0!important;background:none!important}' +
+        '[data-om-frame]{margin:0!important}}';
+      document.body.appendChild(fst);
+    }
+  }
+  // Relax break-inside on oversized elements. An element taller than a
+  // printable page can't honor break-inside: avoid — browsers either overflow
+  // it or push it whole to the next page, leaving a blank gap, then break it
+  // anyway at an arbitrary point. After the final layout (content revealed,
+  // animations jumped), find elements taller than a page that still compute
+  // break-inside: avoid and reset them to auto, so the browser breaks them at
+  // their children's boundaries instead (children keep their own avoid). PAGE_PX
+  // is a conservative portrait estimate at 96 CSS px/in — Letter/A4 usable
+  // height minus our 0.5in margins — so only clearly-oversized elements are
+  // touched and under-page elements still stay whole. Skipped for decks (slides
+  // are sized to the page) and for fixed-size canvases (frame set, or an author
+  // px-based @page) — runs as before for flowing docs on letter/A4.
+  try {
+    if (!ds && !frame && !(__m && __m.signals && __m.signals.pxPage)) {
+      const PAGE_PX = 1024;
+      // Our print defaults add a real @page margin only when the source has
+      // no @page of its own; computed style can't tell us (it reports screen
+      // media), so read the injected rule directly.
+      const defaults = document.querySelector('style[data-omelette-print-defaults]');
+      const pageInset = /@page\s*\{[^}]*margin/.test(defaults ? defaults.textContent || '' : '');
+      const SEL = 'section,article,figure,table,pre,blockquote,[class~="card" i],[class~="page" i],[class~="sheet" i]';
+      for (const el of document.body.querySelectorAll(SEL)) {
+        if (el instanceof HTMLElement && el.offsetHeight > PAGE_PX) {
+          el.setAttribute('data-om-oversized', '');
+          // Fake-paged docs simulate sheets with over-tall break-after:page
+          // boxes; honoring the break spills half-blank pages and ends a
+          // colored box mid-sheet. Flow them, and (only when we own the page
+          // inset) drop the redundant padding/background via the rule below.
+          const cs = getComputedStyle(el);
+          if (cs.breakAfter === 'page' || cs.pageBreakAfter === 'always') {
+            el.setAttribute('data-om-fakepage', '');
+          }
+        }
+      }
+      const ost = document.createElement('style');
+      ost.textContent = '@media print{' +
+        '[data-om-oversized]{break-inside:auto !important;page-break-inside:auto !important}' +
+        '[data-om-fakepage]{break-after:auto !important;page-break-after:auto !important}' +
+        (pageInset ? '[data-om-fakepage]{padding:0 !important;background:none !important}' : '') +
+        '}';
+      document.head.appendChild(ost);
+    }
+  } catch (e) {}
+  // macOS Preview renders Skia-PDF Luminosity soft-masks as opaque grey boxes;
+  // swap the CSS that triggers them for Preview-safe forms.
+  try {
+    for (const el of document.body.querySelectorAll('*')) {
+      const cs = getComputedStyle(el);
+
+      if (cs.boxShadow !== 'none' && cs.filter === 'none') {
+        const outs = [], kept = [];
+        for (const s of cs.boxShadow.split(/,(?![^(]*[)])/)) {
+          const t = s.trim();
+          const m = t.match(/^(rgba?[(][^)]+[)]) (-?[0-9.]+px) (-?[0-9.]+px) ([0-9.]+px) -?[0-9.]+px$/);
+          if (m && parseFloat(m[4]) > 0) outs.push('drop-shadow(' + m[2] + ' ' + m[3] + ' ' + m[4] + ' ' + m[1] + ')');
+          else kept.push(t);
+        }
+        if (outs.length) {
+          el.style.setProperty('filter', outs.join(' '), 'important');
+          el.style.setProperty('box-shadow', kept.join(', ') || 'none', 'important');
+        }
+      }
+
+      const mask = cs.maskImage && cs.maskImage !== 'none' ? cs.maskImage : cs.webkitMaskImage;
+      if (mask && mask !== 'none' && cs.filter === 'none') el.style.setProperty('filter', 'opacity(1)', 'important');
+    }
+  } catch (e) {}
+  setTimeout(() => { try { window.print(); } catch (e) {} }, 200);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+script: src/analysis/observables/structural/uma_densities.py
+code_version: 9cb6618
+generated: '2026-10-28T12:59:47'
+root: /work/nvme/beye/iamin/electrolytes_data/UMA_298K_1ns
+exp_csv: /u/iamin/electrolytes/src/analysis/observables/ground_truth/298p2K_exp_values.csv
+temperature_K: 298.0
+avg_window_ps: 500.0
+frame_dt_ps: 1.0
+model: uma-s-1p1 (OMol task)
+runs:
+- /work/nvme/beye/iamin/electrolytes_data/UMA_298K_1ns/napf6_dme_0_1M/napf6_dme_0_1M.traj
+- /work/nvme/beye/iamin/electrolytes_data/UMA_298K_1ns/napf6_dme_1M/napf6_dme_1M.traj
+- /work/nvme/beye/iamin/electrolytes_data/UMA_298K_1ns/napf6_pc_0_1M/napf6_pc_0_1M.traj
+- /work/nvme/beye/iamin/electrolytes_data/UMA_298K_1ns/napf6_pc_1M/napf6_pc_1M.traj
+- /work/nvme/beye/iamin/electrolytes_data/UMA_298K_1ns/napf6_diglyme_0_1M/napf6_diglyme_0_1M.traj
+- /work/nvme/beye/iamin/electrolytes_data/UMA_298K_1ns/napf6_diglyme_1M/napf6_diglyme_1M.traj
+- /work/nvme/beye/iamin/electrolytes_data/UMA_298K_1ns/napf6_tgdme_1M/napf6_tgdme_1M.traj
+- /work/nvme/beye/iamin/electrolytes_data/UMA_298K_1ns/naotf_dme_0_1M/naotf_dme_0_1M.traj
+- /work/nvme/beye/iamin/electrolytes_data/UMA_298K_1ns/naotf_dme_1M/naotf_dme_1M.traj
+- /work/nvme/beye/iamin/electrolytes_data/UMA_298K_1ns/naotf_pc_0_1M/naotf_pc_0_1M.traj
+- /work/nvme/beye/iamin/electrolytes_data/UMA_298K_1ns/naotf_pc_1M/naotf_pc_1M.traj
+- /work/nvme/beye/iamin/electrolytes_data/UMA_298K_1ns/naotf_diglyme_0_1M/naotf_diglyme_0_1M.traj
+- /work/nvme/beye/iamin/electrolytes_data/UMA_298K_1ns/naotf_diglyme_1M/naotf_diglyme_1M.traj
+- /work/nvme/beye/iamin/electrolytes_data/UMA_298K_1ns/naotf_tgdme_0_1M/naotf_tgdme_0_1M.traj
+- /work/nvme/beye/iamin/electrolytes_data/UMA_298K_1ns/naotf_tgdme_1M/naotf_tgdme_1M.traj
+- /work/nvme/beye/iamin/electrolytes_data/UMA_298K_1ns/lipf6_dme_0_5M/lipf6_dme_0_5M.traj

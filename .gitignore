@@ -1,0 +1,37 @@
+slurm_logs/
+__pycache__/
+*.pyc
+*.pyo
+fairchem
+/data
+.vscode/
+tmp_plots/
+
+# Local experiment tracking / one-off run logs
+wandb/
+src/train/logs/
+fennol_subsample.log
+
+# Benchmark generated outputs (keep CSVs, ignore pngs and raw per-job txt files)
+src/benchmark/results/*.png
+src/benchmark/results/bench_*.txt
+
+# Local reference paper collections (not tracked)
+zz_conductivity_papers/
+zz_viscosity_papers/
+
+# The manuscript is its own repository; not part of the released code.
+paper/paper_electrolytes/
+
+# Working notes, not part of the released code.
+paper/literature_review_distillation.md
+paper/citations_experts_explanations/
+
+# Agent notes and project memory, not part of the released code.
+.claude/
+
+# Python test cache
+.pytest_cache/
+
+# PDFs (figures are PNG only)
+*.pdf

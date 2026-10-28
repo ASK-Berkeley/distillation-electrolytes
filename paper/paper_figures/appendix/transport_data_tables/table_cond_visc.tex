@@ -1,0 +1,32 @@
+\begin{table}[h]
+\centering
+\caption{Simulated and experimental ionic conductivity $\sigma$ (Onsager, mS/cm) and shear viscosity $\eta$ (cP). Simulated entries are mean\,$\pm$\,std over replicas for the distilled PaiNN model and OPLS-AA; ``--'' denotes values not available.}
+\label{tab:transport-cond-visc}
+\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{lll ccc ccc}
+\toprule
+ & & & \multicolumn{3}{c}{$\sigma$ (mS/cm)}
+     & \multicolumn{3}{c}{$\eta$ (cP)} \\
+\cmidrule(lr){4-6}\cmidrule(lr){7-9}
+Salt & Solvent & Conc. & PaiNN & OPLS-AA & Exp. & PaiNN & OPLS-AA & Exp. \\
+\midrule
+LiPF$_6$ & DME & 0.5 & 12.55 $\pm$ 1.49 & 8.89 $\pm$ 2.57 & 5.68 & 0.80 $\pm$ 0.16 & 1.38 $\pm$ 0.08 & 0.63 \\
+NaPF$_6$ & DME & 0.1 & 2.18 $\pm$ 1.24 & 2.52 $\pm$ 1.36 & 0.61 & 0.77 $\pm$ 0.04 & 0.83 $\pm$ 0.02 & 0.47 \\
+NaPF$_6$ & DME & 1 & 12.74 $\pm$ 3.15 & 7.84 $\pm$ 1.71 & 12.96 & 1.59 $\pm$ 0.08 & 2.69 $\pm$ 0.13 & 1.10 \\
+NaPF$_6$ & PC & 0.1 & 0.59 $\pm$ 0.13 & 0.40 $\pm$ 0.11 & 1.95 & 8.49 $\pm$ 0.44 & 4.14 $\pm$ 0.15 & 2.58 \\
+NaPF$_6$ & PC & 1 & 3.77 $\pm$ 2.04 & 0.76 $\pm$ 0.06 & 6.51 & 14.94 $\pm$ 2.42 & 15.63 $\pm$ 0.33 & 5.16 \\
+NaPF$_6$ & DEGDME & 0.1 & 0.73 $\pm$ 0.18 & 0.77 $\pm$ 0.24 & 0.52 & 2.32 $\pm$ 0.17 & 3.37 $\pm$ 0.15 & 1.10 \\
+NaPF$_6$ & DEGDME & 1 & 5.71 $\pm$ 1.43 & 2.21 $\pm$ 0.37 & 6.69 & 5.01 $\pm$ 0.15 & 10.53 $\pm$ 0.88 & 2.68 \\
+NaPF$_6$ & TEGDME & 1 & 1.65 $\pm$ 0.30 & 0.25 $\pm$ 0.03 & 1.86 & 14.60 $\pm$ 2.72 & 70.56 $\pm$ 10.44 & 8.81 \\
+NaOTf & DME & 0.1 & 0.84 $\pm$ 0.20 & 0.09 $\pm$ 0.15 & 0.05 & 0.76 $\pm$ 0.05 & 0.86 $\pm$ 0.02 & 0.47 \\
+NaOTf & DME & 1 & 6.08 $\pm$ 1.99 & 1.28 $\pm$ 0.41 & 1.23 & 1.52 $\pm$ 0.13 & 2.12 $\pm$ 0.12 & 0.95 \\
+NaOTf & PC & 0.1 & 0.50 $\pm$ 0.21 & 0.87 $\pm$ 0.42 & 1.52 & 9.05 $\pm$ 0.31 & 4.48 $\pm$ 0.12 & 2.52 \\
+NaOTf & PC & 1 & 2.13 $\pm$ 0.98 & 0.61 $\pm$ 0.25 & 3.31 & 19.38 $\pm$ 2.14 & 12.18 $\pm$ 0.83 & 4.01 \\
+NaOTf & DEGDME & 0.1 & 0.47 $\pm$ 0.12 & 0.18 $\pm$ 0.15 & 0.11 & 2.32 $\pm$ 0.18 & 3.33 $\pm$ 0.38 & 1.08 \\
+NaOTf & DEGDME & 1 & 5.43 $\pm$ 1.32 & 1.21 $\pm$ 0.31 & 2.78 & 4.15 $\pm$ 0.11 & 9.69 $\pm$ 0.95 & 2.48 \\
+NaOTf & TEGDME & 0.1 & 0.24 $\pm$ 0.10 & 0.13 $\pm$ 0.01 & 0.09 & 8.94 $\pm$ 0.48 & 25.83 $\pm$ 7.57 & 3.43 \\
+NaOTf & TEGDME & 1 & 1.02 $\pm$ 0.27 & 0.23 $\pm$ 0.06 & 1.22 & 18.30 $\pm$ 1.79 & 73.92 $\pm$ 15.76 & 9.20 \\
+\bottomrule
+\end{tabular}
+\end{table}

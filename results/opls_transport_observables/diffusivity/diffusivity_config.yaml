@@ -1,0 +1,44 @@
+observable: diffusivity
+forcefield: 'OPLS-AA: LigParGen solvents, CL&P anions, Aqvist cations (GROMACS)'
+estimator: einstein_fixed_window (primary D_* columns) + einstein_fickian_beta1 (D_*_fick_*
+  columns), same MSD curve
+estimator_source: src/analysis/observables/diffusivity.py::compute_diffusivity (same
+  function the PaiNN driver uses)
+painn_counterpart: transport/diffusivity_replicas.py
+fit_method: fixed+fickian
+grouping: GROMACS residues, element multiset validated against systems.{cation,anion,solvent}_dict
+  (see opls_runs.groups_from_topology)
+yeh_hummer: true
+yh_variants:
+- experimental_eta
+- opls_gk_eta
+root: /global/cfs/cdirs/m5024/electrolytes_data/OPLS/updated_clp_param_runs/production_replicas
+out_dir: /global/u2/i/ishan_a/electrolytes/data/opls_transport_observables/diffusivity
+exp_source:
+  '293': /global/u2/i/ishan_a/electrolytes/src/analysis/observables/ground_truth/293p2K_exp_values.csv
+  '298': /global/u2/i/ishan_a/electrolytes/src/analysis/observables/ground_truth/298p2K_exp_values.csv
+sim_viscosity_source: /global/u2/i/ishan_a/electrolytes/data/opls_transport_observables/viscosity/viscosity_gk_by_box.csv
+settings:
+  method: fixed
+  eq_time_ps: 2000.0
+  tau_min_fit_ps: 1000.0
+  tau_max_fit_ps: null
+  tau_max_fit_frac: 0.5
+  target_frames: 50000
+  msd_method: fft
+  temperature_k: 298.0
+fickian_settings:
+  method: fickian
+  t_floor_ps: 5.0
+  t_max_frac: 0.4
+  beta_tol: 0.15
+  min_pts: 12
+  n_log: 200
+  smooth_win: 5
+n_replicas_analyzed: 64
+n_skipped: 0
+n_boxes: 16
+n_all_converged_fick: 53
+skipped_runs: []
+code_version: c5e2fe2
+generated: '2026-10-06T09:27:32'

@@ -1,0 +1,2 @@
+system_id,salt,solvent,box,conc_label,conc_M,temperature_K,replica,run_name,eta_gk_cP,eta_err_cP,converged,t_lo_ps,t_hi_ps,tau_slow_ps,frac_recovered,t_total_ns,T_mean_K,dt_fs,n_stress_samples,eq_time_ps,max_lag_ps,T_prefactor_K,eta_exp_cP,eta_at_100ps_cP,eta_at_250ps_cP,eta_at_500ps_cP,eta_at_1000ps_cP
+naotf_diglyme,naotf,diglyme,naotf_diglyme_1M_298,1M,1.0,298.0,2,naotf_diglyme_1M_298_r2,9.6848,1.32,True,1.0,1000.0,22.91,1.0,20.0,297.67,2.0,9000001,2000.0,1000.0,298.0,2.479,9.6416,11.4158,10.7797,9.6897

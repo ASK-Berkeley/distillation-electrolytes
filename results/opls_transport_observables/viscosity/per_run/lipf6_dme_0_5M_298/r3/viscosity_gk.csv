@@ -1,0 +1,2 @@
+system_id,salt,solvent,box,conc_label,conc_M,temperature_K,replica,run_name,eta_gk_cP,eta_err_cP,converged,t_lo_ps,t_hi_ps,tau_slow_ps,frac_recovered,t_total_ns,T_mean_K,dt_fs,n_stress_samples,eq_time_ps,max_lag_ps,T_prefactor_K,eta_exp_cP,eta_at_100ps_cP,eta_at_250ps_cP,eta_at_500ps_cP,eta_at_1000ps_cP
+lipf6_dme,lipf6,dme,lipf6_dme_0_5M_298,0_5M,0.5,298.0,3,lipf6_dme_0_5M_298_r3,1.2754,0.0327,True,1.0,1000.0,5.26,1.0,20.0,298.01,2.0,9000001,2000.0,1000.0,298.0,0.627,1.447,1.5302,1.5859,1.534

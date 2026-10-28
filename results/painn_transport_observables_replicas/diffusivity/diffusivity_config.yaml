@@ -1,0 +1,45 @@
+observable: diffusivity
+estimator: einstein_fixed_window (primary D_* columns) + einstein_fickian_beta1 (D_*_fick_*
+  columns), same MSD curve
+fit_method: fixed+fickian
+yeh_hummer: true
+yh_variants:
+- experimental_eta
+- simulation_gk_eta
+experiment_root: /work/nvme/bfoy/yjian1/electrolytes_data/simulation/boxes_correct_molar/painn_nvt
+exp_source: /u/iamin/electrolytes/src/analysis/observables/ground_truth/298p2K_exp_values.csv
+sim_viscosity_source: /u/iamin/electrolytes/data/painn_transport_observables_replicas/viscosity/viscosity_gk_by_box.csv
+settings:
+  method: fixed
+  eq_time_ps: 2000.0
+  tau_min_fit_ps: 1000.0
+  tau_max_fit_ps: null
+  tau_max_fit_frac: 0.5
+  target_frames: 50000
+  msd_method: fft
+  temperature_k: 298.0
+fickian_settings:
+  method: fickian
+  t_floor_ps: 5.0
+  t_max_frac: 0.4
+  beta_tol: 0.15
+  min_pts: 12
+  n_log: 200
+  smooth_win: 5
+write_internal: false
+n_runs_analyzed: 64
+n_skipped: 6
+n_all_converged_fick: 57
+skipped_runs:
+- lipf6_dme 0_5M (non-298K (T=273K))
+- lipf6_dme 0_5M (non-298K (T=323K))
+- lipf6_dme 0_5M (non-298K (T=273K))
+- lipf6_dme 0_5M (non-298K (T=323K))
+- lipf6_dme 0_5M (non-298K (T=273K))
+- lipf6_dme 0_5M (non-298K (T=323K))
+code_version: 81ecf36
+generated: '2026-08-13T17:46:25'
+forcefield: PaiNN/FeNNol
+opls_counterpart: scripts/transport_scripts/diffusivity_opls_replicas.py
+out_dir: /u/iamin/electrolytes/data/painn_transport_observables_replicas/diffusivity
+n_boxes: 16

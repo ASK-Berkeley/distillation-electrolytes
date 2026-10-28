@@ -1,0 +1,32 @@
+observable: conductivity
+forcefield: PaiNN/FeNNol
+estimator: onsager + nernst_einstein
+estimator_source: src/analysis/observables/conductivity.py::compute_conductivity
+verified_against: byteff2 onsager_calc (code_utils/_vendored/onsager_conductivity.py);
+  agreement 2.8e-7 relative
+opls_counterpart: scripts/transport_scripts/conductivity_opls_replicas.py
+window: byteff2_ase
+window_settings:
+  eq_time_ps: 2000.0
+  tau_min_fit_ps: 500.0
+  tau_max_fit_ps: 2000.0
+  tau_max_fit_frac: null
+  load_dt_ps: 10.0
+z_cation: 1.0
+z_anion: -1.0
+experiment_root: /work/nvme/bfoy/yjian1/electrolytes_data/simulation/boxes_correct_molar/painn_nvt
+exp_source: /u/iamin/electrolytes/src/analysis/observables/ground_truth/conductivity_all.csv
+write_internal: false
+n_runs_analyzed: 64
+n_skipped: 6
+skipped_runs:
+- nvt_transport_0_5M_273K_20ns_1ps (non-298K (T=273K))
+- nvt_transport_0_5M_323K_20ns_1ps (non-298K (T=323K))
+- nvt_transport_0_5M_273K_20ns_1ps (non-298K (T=273K))
+- nvt_transport_0_5M_323K_20ns_1ps (non-298K (T=323K))
+- nvt_transport_0_5M_273K_20ns_1ps (non-298K (T=273K))
+- nvt_transport_0_5M_323K_20ns_1ps (non-298K (T=323K))
+code_version: 220536b
+generated: '2026-08-11T12:45:27'
+out_dir: /u/iamin/electrolytes/data/painn_transport_observables_replicas/conductivity
+n_boxes: 16

@@ -1,0 +1,97 @@
+# FeNNol training config of the released student. Paths are relative to the
+# repository root; the dataset itself is not released (README section 4).
+device: cuda:0
+log_file: train.log
+print_timings: false
+matmul_prec: default
+training:
+  batch_size: 4
+  max_epochs: 275
+  nbatch_per_epoch: 1800
+  nbatch_per_validation: 25
+  batch_size_val: 8
+  validation_interval: 5
+  gradient_clipping: 100.0
+  zero_nans: true
+  pbc_training: true
+  gpu_preprocessing: true
+  nblist_mult_size: 1.5
+  optimizer: adamw
+  optimizer_config:
+    weight_decay: 0.0
+  weight_decay: 0.001
+  decay_targets:
+  - .*kernel$
+  scheduler: cosine_onecycle
+  linear_warmup: true
+  peak_epoch: 0.01
+  init_lr: 0.00016
+  lr: 0.0008
+  final_lr: 8.0e-06
+  wandb:
+    project: electrolytes-fennol
+    name: exp01_mixed_noise_all_systems_naotf_pc
+  default_loss_type: mae
+  loss:
+    e:
+      key: total_energy
+      ref: total_energy
+      type: mae
+      weight: 1.0
+      per_atom: true
+      normalizer_rmsd: 4.8563406375089775
+    f:
+      key: forces
+      ref: forces
+      type: l2norm
+      weight: 1.0
+      normalizer_rmsd: 4.8563406375089775
+    s:
+      key: stress
+      ref: stress
+      type: mae
+      weight: 1.0
+      normalizer_rmsd: 4.8563406375089775
+  dspath: data/datasets/version01_mixed_noise/naotf_pc/training_all.pkl
+model:
+  cutoff: 5.1
+  energy_terms:
+  - energy
+  - repulsion
+  energy_unit: ev
+  preprocessing:
+    graph:
+      switch_params:
+        switch_type: polynomial
+        p: 3.0
+        trainable: true
+  modules:
+    embedding:
+      module_name: PAINN
+      dim: 128
+      nlayers: 3
+      nchannels: 128
+      message_hidden:
+      - 128
+      update_hidden:
+      - 128
+      activation: silu
+      embedding_key: embedding
+      radial_basis:
+        dim: 128
+        basis: gaussian
+        trainable: true
+      species_encoding:
+        encoding: random
+        dim: 32
+        zmax: 86
+    energy:
+      module_name: ESEN_ENERGY_HEAD
+      hidden_channels: 128
+      input_key: embedding
+    repulsion:
+      module_name: REPULSION_ZBL
+      energy_key: repulsion
+      trainable: true
+      inner_cutoff: 1.1
+output_directory: paper_data/models/naotf_pc

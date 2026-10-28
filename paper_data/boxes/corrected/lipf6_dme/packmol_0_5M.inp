@@ -1,0 +1,18 @@
+tolerance 2.0
+filetype xyz
+output packed_0_5M.xyz
+
+structure src/data_prep/box_creation/molecules/dme.xyz
+  number 190
+  inside box 2.0 2.0 2.0 31.4 31.4 31.4
+end structure
+
+structure src/data_prep/box_creation/molecules/li.xyz
+  number 9
+  inside box 2.0 2.0 2.0 31.4 31.4 31.4
+end structure
+
+structure src/data_prep/box_creation/molecules/pf6.xyz
+  number 9
+  inside box 2.0 2.0 2.0 31.4 31.4 31.4
+end structure

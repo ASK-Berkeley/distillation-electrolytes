@@ -1,0 +1,2 @@
+system_id,salt,solvent,conc_label,conc_M,replica,run_name,eta_gk_cP,eta_err_cP,converged,t_lo_ps,t_hi_ps,tau_slow_ps,frac_recovered,t_total_ns,T_mean_K,dt_fs,n_stress_samples,eq_time_ps,max_lag_ps,T_prefactor_K,eta_exp_cP,eta_at_100ps_cP,eta_at_250ps_cP,eta_at_500ps_cP,eta_at_1000ps_cP
+napf6_tgdme,napf6,tgdme,1M,1.0,1,nvt_transport_1M_298K_20ns_1ps,17.3845,2.4846,True,1.0,1000.0,44.3,1.0,20.0,291.58,2.0,9000001,2000.0,1000.0,298.0,8.814,14.7312,18.0833,21.6209,22.8774

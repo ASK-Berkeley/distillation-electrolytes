@@ -1,0 +1,15 @@
+; Lithium cation, Li+
+;
+; Source: Aqvist, J. Phys. Chem. 94, 8021 (1990), doi:10.1021/j100384a009,
+; as distributed in GROMACS oplsaa.ff (atom type opls_406, "Li+").
+; Lennard-Jones (sigma 0.212645 nm, epsilon 0.0764793 kJ/mol) is defined in the
+; combined forcefield file written by lib/build_system_lpg.py, copied verbatim
+; from oplsaa.ff/ffnonbonded.itp. Full +1 charge, no charge scaling.
+
+[ moleculetype ]
+; name  nrexcl
+LI      3
+
+[ atoms ]
+;  nr   type    resnr  resname  atom   cgnr   charge    mass
+   1   opls_406   1     LI      Li     1     1.000    6.941

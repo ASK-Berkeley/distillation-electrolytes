@@ -1,0 +1,34 @@
+# Environment for the UMA-S teacher: teacher MD (src/simulate/uma_npt.py),
+# dataset creation (src/data_prep/dataset_creation/create_rattled_dataset.py)
+# and UMA labeling (src/analysis/labeling/label_traj_with_uma.py).
+#
+#   mamba env create -f fairchemV3_env.yaml
+#
+# Two things pip cannot express here, in this order, after the env exists:
+#   1. fairchem-core's own pin drags in a CPU-only torch; reinstall the CUDA wheel
+#      afterwards:  pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cu126
+#   2. nvalchemi-toolkit-ops must stay at 0.2.0 (0.3.0 renamed the module fairchem imports).
+# torch.compile needs a plain GNU toolchain (export CXX=g++ CC=gcc) on machines whose
+# default `cc` is a vendor wrapper.
+name: fairchemV3
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu126
+      - torch==2.9.1
+      - fairchem-core>=2.19          # the paper used commit 28292f0 plus a one-line patch (see README section 1)
+      - torch-sim-atomistic==0.5.2   # needs python >= 3.12
+      - nvalchemi-toolkit-ops==0.2.0 # graph_gen_version=3
+      - e3nn==0.4.4
+      - cuequivariance-torch==0.9.1
+      - cuequivariance-ops-torch-cu12==0.9.1
+      - mace-torch==0.3.15           # only for src/simulate/mace_md.py and eval_mace.py
+      - ase==3.28.0
+      - numpy==2.4.4
+      - pandas==3.0.2
+      - matplotlib==3.10.8
+      - pyyaml==6.0.3
+      - tqdm==4.67.3

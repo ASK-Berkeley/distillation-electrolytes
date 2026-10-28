@@ -1,0 +1,35 @@
+\begin{table}[h]
+\centering
+\caption{Raw (uncorrected) self-diffusivities and additive Yeh--Hummer finite-size corrections $\Delta D_{\mathrm{YH}}$ for OPLS-AA, with experimental self-diffusivities for reference. Simulated entries are mean\,$\pm$\,std over replicas; $\Delta D_{\mathrm{YH}}$ is species-independent (``sim''/``exp'' denote the viscosity used to evaluate it, and the finite-size corrected diffusivity is calculated by adding it to the raw value). All values in $10^{-10}$~m$^2$/s; ``--'' denotes values not available.}
+\label{tab:transport-diffusivity-opls}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lll ccc cc ccc}
+\toprule
+ & & & \multicolumn{3}{c}{$D_{\mathrm{raw}}$ (sim.)}
+     & \multicolumn{2}{c}{$\Delta D_{\mathrm{YH}}$}
+     & \multicolumn{3}{c}{Experimental} \\
+\cmidrule(lr){4-6}\cmidrule(lr){7-8}\cmidrule(lr){9-11}
+Salt & Solvent & Conc. & $D^+$ & $D^-$ & $D^0$ & sim & exp & $D^+$ & $D^-$ & $D^0$ \\
+\midrule
+LiPF$_6$ & DME & 0.5 & 3.55 $\pm$ 0.27 & 3.61 $\pm$ 0.26 & 8.16 $\pm$ 0.33 & 1.44 & 3.18 & 7.14 & 9.09 & 22.10 \\
+NaPF$_6$ & DME & 0.1 & 4.96 $\pm$ 0.61 & 6.86 $\pm$ 0.44 & 12.48 $\pm$ 0.31 & 2.33 & 4.09 & 17.20 & 17.60 & 29.50 \\
+NaPF$_6$ & DME & 1 & 1.46 $\pm$ 0.09 & 1.85 $\pm$ 0.14 & 4.20 $\pm$ 0.12 & 0.76 & 1.86 & 6.49 & 6.42 & 13.60 \\
+NaPF$_6$ & PC & 0.1 & 0.83 $\pm$ 0.07 & 1.29 $\pm$ 0.27 & 2.27 $\pm$ 0.04 & 0.47 & 0.75 & 3.21 & 4.29 & 4.97 \\
+NaPF$_6$ & PC & 1 & 0.24 $\pm$ 0.02 & 0.29 $\pm$ 0.04 & 0.80 $\pm$ 0.03 & 0.13 & 0.39 & 1.29 & 1.76 & 2.43 \\
+NaPF$_6$ & DEGDME & 0.1 & 1.28 $\pm$ 0.13 & 1.59 $\pm$ 0.33 & 2.63 $\pm$ 0.10 & 0.57 & 1.75 & 6.67 & 5.55 & 11.80 \\
+NaPF$_6$ & DEGDME & 1 & 0.34 $\pm$ 0.03 & 0.45 $\pm$ 0.04 & 0.91 $\pm$ 0.03 & 0.19 & 0.76 & 2.67 & 2.96 & 4.89 \\
+NaPF$_6$ & TEGDME & 1 & 0.04 $\pm$ 0.00 & 0.07 $\pm$ 0.01 & 0.08 $\pm$ 0.01 & 0.03 & 0.23 & -- & 0.80 & 1.12 \\
+NaOTf & DME & 0.1 & 4.14 $\pm$ 1.08 & 4.68 $\pm$ 0.87 & 12.32 $\pm$ 0.27 & 2.24 & 4.12 & 12.30 & 11.40 & 30.10 \\
+NaOTf & DME & 1 & 1.22 $\pm$ 0.09 & 1.20 $\pm$ 0.30 & 5.64 $\pm$ 0.36 & 0.96 & 2.14 & 5.90 & 5.44 & 15.30 \\
+NaOTf & PC & 0.1 & 0.88 $\pm$ 0.18 & 1.47 $\pm$ 0.11 & 2.21 $\pm$ 0.07 & 0.43 & 0.76 & 3.11 & 3.70 & 4.92 \\
+NaOTf & PC & 1 & 0.23 $\pm$ 0.02 & 0.28 $\pm$ 0.01 & 0.91 $\pm$ 0.05 & 0.17 & 0.51 & 1.68 & 1.53 & 2.82 \\
+NaOTf & DEGDME & 0.1 & 1.00 $\pm$ 0.14 & 1.35 $\pm$ 0.25 & 2.59 $\pm$ 0.07 & 0.58 & 1.78 & 7.25 & 5.44 & 11.60 \\
+NaOTf & DEGDME & 1 & 0.41 $\pm$ 0.05 & 0.48 $\pm$ 0.06 & 1.06 $\pm$ 0.06 & 0.21 & 0.82 & 2.58 & 2.87 & 5.94 \\
+NaOTf & TEGDME & 0.1 & 0.17 $\pm$ 0.04 & 0.25 $\pm$ 0.03 & 0.29 $\pm$ 0.01 & 0.07 & 0.56 & 1.01 & 1.77 & 3.05 \\
+NaOTf & TEGDME & 1 & 0.04 $\pm$ 0.01 & 0.05 $\pm$ 0.01 & 0.08 $\pm$ 0.00 & 0.03 & 0.22 & 0.54 & 0.94 & 1.55 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

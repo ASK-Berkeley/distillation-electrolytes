@@ -1,0 +1,146 @@
+# exp07_no_noise — PaiNN d128/nc128/3L + ZBL | pure MD, NO noise | no EMA
+#
+# ABLATION counterpart of exp01_mixed_noise: identical training scheme (`base:`
+# below is byte-for-byte exp01's), the ONLY difference is the dataset — here the
+# version05_no_noise build, where the second sampling grid is kept at its true MD
+# geometry instead of being rattled (see src/data_prep/dataset_creation/
+# create_rattled_dataset.py --no-noise). Same 4000 frames/system (3600 train /
+# 400 val), same points, just no OOD noise. Compare the two experiments to isolate
+# what the rattled points buy the model.
+#
+# Only 2 systems, one per source-trajectory kind:
+#   - napf6_tgdme : 1M   (pre-labeled trajectory)
+#   - lipf6_dme   : 0.5M (position-only trajectory)
+#
+# LAUNCH ON DELTA (one job per system on a ghx4 GPU):
+#   python src/train/launch_fennol_experiment.py \
+#       --experiment src/train/fennol_configs/exp07_no_noise.yaml
+# The launcher auto-creates each model output dir but requires the datasets to
+# already be present at {data_root}/datasets/version05_no_noise/<system>/ (with
+# training_all.pkl + linref.json) — mirror them from NERSC to Delta first.
+
+experiment:
+  name: exp07_no_noise
+  wandb_project: electrolytes-fennol
+  # Delta data dir (NOT the NERSC path exp01 uses). Datasets live at
+  # {data_root}/datasets/version05_no_noise/<system>/, models written to
+  # {data_root}/experiments/exp07_no_noise/<system>/model/.
+  data_root: /work/nvme/beye/iamin/electrolytes_data
+  dataset_dir_template: "{data_root}/datasets/version05_no_noise/{system}"
+  pkl: training_all.pkl                # no-noise build only writes training_all.pkl
+  normalizer_rule: force_rms_all       # all loss terms <- force_rms (matches exp01).
+                                       # Alternative: force_stress_split (e/f<-force_rms, s<-stress_rms).
+
+# ── Systems (the fan-out axis) ────────────────────────────────────────────────
+# Plain string = use the shared scheme as-is. Dict form adds per-system overrides:
+#   - {name: lipf6_dme, overrides: {training: {max_epochs: 300}}}
+systems:
+  - napf6_tgdme
+  - lipf6_dme
+
+# ── Shared training scheme ────────────────────────────────────────────────────
+# Everything below is identical across systems AND identical to exp01_mixed_noise
+# (so the only variable in the ablation is the dataset). NOTE: no `ema_decay` key
+# -> FeNNol trains without EMA, so best_model.fnx is the production model.
+base:
+  device: cuda:0
+  log_file: train.log
+  print_timings: False
+  matmul_prec: default
+
+  training:
+    # dspath: filled per system
+    batch_size: 4
+    max_epochs: 275
+    # nbatch_per_epoch: written per-system by launch_fennol_experiment.py as
+    #   n_train // batch_size (one full pass). Do NOT set it here and do NOT
+    #   rely on FeNNol: omitting the key makes FeNNol silently use 200.
+    nbatch_per_validation: 25
+    batch_size_val: 8
+    validation_interval: 5
+    gradient_clipping: 100.0
+    zero_nans: True
+    pbc_training: True
+    gpu_preprocessing: True
+    nblist_mult_size: 1.5
+
+    optimizer: adamw
+    optimizer_config:
+      weight_decay: 0.0
+    weight_decay: 1.e-3
+    decay_targets: ['.*kernel$']
+
+    scheduler: cosine_onecycle
+    linear_warmup: True
+    peak_epoch: 0.01
+    init_lr: 1.6e-4
+    lr: 8.e-4
+    final_lr: 8.e-6
+
+    wandb:
+      entity: ishan-amin
+      # project, name: filled per system
+
+    default_loss_type: mae
+    loss:
+      e:
+        key: total_energy
+        ref: total_energy
+        type: mae
+        weight: 1.0
+        per_atom: True
+        # normalizer_rmsd: filled per system from linref.json
+      f:
+        key: forces
+        ref: forces
+        type: l2norm
+        weight: 1.0
+        # normalizer_rmsd: filled per system
+      s:
+        key: stress
+        ref: stress
+        type: mae
+        weight: 1.0
+        # normalizer_rmsd: filled per system
+
+  model:
+    cutoff: 5.1
+    energy_terms: [energy, repulsion]
+    energy_unit: ev
+
+    preprocessing:
+      graph:
+        switch_params:
+          switch_type: polynomial
+          p: 3.
+          trainable: True
+
+    modules:
+      embedding:
+        module_name: PAINN
+        dim: 128
+        nlayers: 3
+        nchannels: 128
+        message_hidden: [128]
+        update_hidden: [128]
+        activation: silu
+        embedding_key: embedding
+        radial_basis:
+          dim: 128
+          basis: gaussian
+          trainable: True
+        species_encoding:
+          encoding: random
+          dim: 32
+          zmax: 86
+
+      energy:
+        module_name: ESEN_ENERGY_HEAD
+        hidden_channels: 128
+        input_key: embedding
+
+      repulsion:
+        module_name: REPULSION_ZBL
+        energy_key: repulsion
+        trainable: True
+        inner_cutoff: 1.1

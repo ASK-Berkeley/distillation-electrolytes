@@ -1,0 +1,17 @@
+box,system_id,salt,solvent,conc_label,conc_M,temperature_K,n_replicas,n_converged,n_used,eta_gk_mean_cP,eta_gk_std_cP,eta_gk_sem_cP,eta_exp_cP,sim_over_exp
+lipf6_dme_0_5M_298,lipf6_dme,lipf6,dme,0_5M,0.5,298.0,4,4,4,1.3825,0.0833,0.0416,0.627,2.204944178628389
+naotf_diglyme_0_1M_298,naotf_diglyme,naotf,diglyme,0_1M,0.1,298.0,4,4,4,3.3264,0.3755,0.1877,1.08,3.0799999999999996
+naotf_diglyme_1M_298,naotf_diglyme,naotf,diglyme,1M,1.0,298.0,4,4,4,9.6864,0.9468,0.4734,2.479,3.9073820088745466
+naotf_dme_0_1M_298,naotf_dme,naotf,dme,0_1M,0.1,298.0,4,4,4,0.8589,0.0246,0.0123,0.468,1.8352564102564102
+naotf_dme_1M_298,naotf_dme,naotf,dme,1M,1.0,298.0,4,4,4,2.1215,0.1235,0.0617,0.952,2.228466386554622
+naotf_pc_0_1M_298,naotf_pc,naotf,pc,0_1M,0.1,298.0,4,4,4,4.4819,0.1165,0.0582,2.519,1.7792377927749108
+naotf_pc_1M_298,naotf_pc,naotf,pc,1M,1.0,298.0,4,4,4,12.1815,0.8337,0.4168,4.008,3.0392964071856285
+naotf_tgdme_0_1M_298,naotf_tgdme,naotf,tgdme,0_1M,0.1,298.0,4,4,4,25.8314,7.5741,3.7871,3.433,7.52443926594815
+naotf_tgdme_1M_298,naotf_tgdme,naotf,tgdme,1M,1.0,298.0,4,4,4,73.9206,15.7618,7.8809,9.197,8.037468739806458
+napf6_diglyme_0_1M_298,napf6_diglyme,napf6,diglyme,0_1M,0.1,298.0,4,4,4,3.3708,0.1512,0.0756,1.104,3.053260869565217
+napf6_diglyme_1M_298,napf6_diglyme,napf6,diglyme,1M,1.0,298.0,4,4,4,10.5278,0.8791,0.4395,2.682,3.925354213273676
+napf6_dme_0_1M_298,napf6_dme,napf6,dme,0_1M,0.1,298.0,4,4,4,0.8268,0.0185,0.0093,0.471,1.7554140127388536
+napf6_dme_1M_298,napf6_dme,napf6,dme,1M,1.0,298.0,4,4,4,2.6947,0.1341,0.0671,1.096,2.4586678832116786
+napf6_pc_0_1M_298,napf6_pc,napf6,pc,0_1M,0.1,298.0,4,4,4,4.1376,0.1534,0.0767,2.575,1.6068349514563105
+napf6_pc_1M_298,napf6_pc,napf6,pc,1M,1.0,298.0,4,4,4,15.6339,0.332,0.166,5.155,3.032764306498545
+napf6_tgdme_1M_298,napf6_tgdme,napf6,tgdme,1M,1.0,298.0,4,4,4,70.5567,10.4412,5.2206,8.814,8.005071477195372

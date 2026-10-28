@@ -1,0 +1,18 @@
+{
+  "viscosity_gk": {
+    "eta_gk_cP": 4.7843,
+    "eta_err_cP": 0.2899,
+    "converged": true,
+    "t_lo_ps": 1.0,
+    "t_hi_ps": 1000.0,
+    "tau_slow_ps": 13.11,
+    "frac_recovered": 1.0,
+    "t_total_ns": 20.0,
+    "eq_time_ps": 2000.0,
+    "T_prefactor_K": 298.0,
+    "max_lag_ps": 1000.0,
+    "code_version": "81ecf36",
+    "generated": "2026-08-13T17:43:11",
+    "eta_exp_cP": 2.682
+  }
+}
