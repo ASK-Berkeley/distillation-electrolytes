@@ -384,12 +384,13 @@ results/                committed analysis outputs (~180 MB): summary CSVs, *_co
                         provenance sidecars, RDF curves and the per_run/ transport curves
 paper_data/             released inputs (44 MB): the 9 trained students and the simulation boxes
 fennol/                 our FeNNol fork (submodule), see section 1
-LICENSE                 BSD 3-Clause (LBNL variant)
+LICENSE                 CC BY 4.0
 ```
 
 ## License
 
-BSD 3-Clause (Lawrence Berkeley National Laboratory variant), see
-[LICENSE](LICENSE). The FeNNol fork in `fennol/` is a separate repository under
-the LGPL-3.0 of upstream FeNNol; this repository uses it as a library and does
-not include any of its source.
+Creative Commons Attribution 4.0 International (CC BY 4.0), see
+[LICENSE](LICENSE). This covers the code, the released models and boxes in
+`paper_data/`, and the analysis outputs in `results/`. The FeNNol fork in
+`fennol/` is a separate repository under the LGPL-3.0 of upstream FeNNol; this
+repository uses it as a library and does not include any of its source.
